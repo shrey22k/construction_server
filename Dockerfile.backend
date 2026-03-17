@@ -1,0 +1,22 @@
+# ---------- Stage 1: Base Image ----------
+FROM python:3.11-slim AS base
+
+# Set working directory
+WORKDIR /app
+
+# ---------- Stage 2: Install Dependencies ----------
+COPY backend/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ---------- Stage 3: Copy Application Code ----------
+COPY backend/ .
+
+# ---------- Stage 4: Environment Setup ----------
+ENV PYTHONUNBUFFERED=1
+
+# Expose Flask port
+EXPOSE 5000
+
+# ---------- Stage 5: Run Application ----------
+CMD ["python", "app.py"]
