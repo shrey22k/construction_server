@@ -1,9 +1,9 @@
-// ----------- CONFIG (AUTO SWITCH LOCAL / DOCKER) -----------
+// ----------- CONFIG (AUTO SWITCH LOCAL / EC2) -----------
 
 const API_BASE =
   window.location.hostname === "localhost"
     ? "http://127.0.0.1:5000"
-    : "http://backend:5000";
+    : `http://${window.location.hostname}:5000`;
 
 
 // ----------- MAIN FUNCTION -----------
