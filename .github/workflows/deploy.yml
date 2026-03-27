@@ -26,4 +26,4 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd ~/construction_server
-          kubectl apply -f k8s/
+          sudo kubectl apply -f k8s/
